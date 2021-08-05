@@ -20,6 +20,11 @@ public class BlockController : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         body.gravityScale = 0;
+
+        //Vector3 vector = body.position;
+        //min_x = vector.x - 1.45f;
+        //max_x = vector.x + 1.45f;
+        //Debug.Log(min_x.ToString() + " " + max_x.ToString());
     }
 
     void Start()
@@ -93,28 +98,28 @@ public class BlockController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //if (ignoreCollision)
-        //{
-        //    Debug.Log("colission");
-        //    return;
-        //}
+        if (ignoreCollision)
+        {
+            Debug.Log("colission");
+            return;
+        }
 
         if (collision.gameObject.tag == "Ground")
         {
-            //ignoreCollision = true;
-            //Invoke("TouchGround", 1f);
-            if (firstLanded)
-            {
-                TouchGround();
-            }
-            else
-            {
-                CancelInvoke("TouchGround");
-                gameover = true;
-                ignoreTrigger = true;
-                Invoke("RestartGame", 2f);
-            }
-            
+            ignoreCollision = true;
+            Invoke("TouchGround", 1f);
+            //if (firstLanded)
+            //{
+            //    TouchGround();
+            //}
+            //else
+            //{
+            //    CancelInvoke("TouchGround");
+            //    gameover = true;
+            //    ignoreTrigger = true;
+            //    Invoke("RestartGame", 2f);
+            //}
+
         }
 
         if (collision.gameObject.tag == "Block")

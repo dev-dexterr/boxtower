@@ -67,7 +67,7 @@ public class GameController : MonoBehaviour
     public void RestartGame()
     {
         Debug.Log("Restart");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
 }
