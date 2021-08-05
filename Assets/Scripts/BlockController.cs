@@ -93,23 +93,35 @@ public class BlockController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (ignoreCollision)
-        {
-            return;
-        }
+        //if (ignoreCollision)
+        //{
+        //    Debug.Log("colission");
+        //    return;
+        //}
 
         if (collision.gameObject.tag == "Ground")
         {
-            ignoreCollision = true;
-            Invoke("TouchGround", 1f);
-            //TouchGround();
+            //ignoreCollision = true;
+            //Invoke("TouchGround", 1f);
+            if (firstLanded)
+            {
+                TouchGround();
+            }
+            else
+            {
+                CancelInvoke("TouchGround");
+                gameover = true;
+                ignoreTrigger = true;
+                Invoke("RestartGame", 2f);
+            }
+            
         }
 
         if (collision.gameObject.tag == "Block")
         {
             ignoreCollision = true;
-            Invoke("TouchGround", 1f);
-            //TouchGround();
+            //Invoke("TouchGround", 1f);
+            TouchGround();
         }
     }
 

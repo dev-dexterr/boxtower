@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public CameraController camera;
 
     private int count;
+    private int score; 
 
     private void Awake()
     {
@@ -56,11 +57,16 @@ public class GameController : MonoBehaviour
 
     public void CloneNewBlock()
     {
-        Invoke("NewBlock", 2f);
+        score++;
+        Debug.Log(score.ToString());
+
+        //Invoke("NewBlock", 2f);
+        NewBlock();
     }
 
     public void RestartGame()
     {
+        Debug.Log("Restart");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
