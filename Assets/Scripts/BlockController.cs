@@ -86,7 +86,7 @@ public class BlockController : MonoBehaviour
             ignoreCollision = true;
             ignoreTrigger = true;
             GameController.instance.CloneNewBlock();
-            //GameController.instance.MoveCamera();
+            GameController.instance.MoveCamera();
         }
     }
     private void RestartGame()
