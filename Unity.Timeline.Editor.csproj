@@ -132,8 +132,8 @@
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Animation\ClipCurveEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Actions\TimelineAction.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\treeview\TimelineClipHandle.cs" />
-    <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Items\MarkerItem.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Actions\TrackActions.cs" />
+    <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Items\MarkerItem.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Manipulators\AddDelete\AddDeleteItemModeMix.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Window\TimelineWindow.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Signals\Styles.cs" />

@@ -98,7 +98,7 @@ public class BlockController : MonoBehaviour
     {
         if (ignoreCollision)
         {
-            Debug.Log("ignorecollision");
+            //Debug.Log("ignorecollision");
             return;
         }
 
@@ -128,24 +128,24 @@ public class BlockController : MonoBehaviour
         }
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (ignoreTrigger)
-    //    {
-    //        Debug.Log("ignoreTrigger");
-    //        return;
-    //    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (ignoreTrigger)
+        {
+            Debug.Log("ignoreTrigger");
+            return;
+        }
 
-    //    if (collision.tag == "Ground")
-    //    {
-    //        if (!GameController.instance.firstLanded)
-    //        {
-    //            Debug.Log("Trigger");
-    //            CancelInvoke("TouchGround");
-    //            gameover = true;
-    //            ignoreTrigger = true;
-    //            //Invoke("RestartGame", 2f);
-    //        }
-    //    }
-    //}
+        if (collision.tag == "Gameover")
+        {
+            if (!GameController.instance.firstLanded)
+            {
+                Debug.Log("Trigger");
+                CancelInvoke("TouchGround");
+                gameover = true;
+                ignoreTrigger = true;
+                RestartGame();
+            }
+        }
+    }
 }
