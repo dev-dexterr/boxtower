@@ -8,7 +8,6 @@ public class BlockController : MonoBehaviour
     private bool moving;
     private bool ignoreCollision;
     private bool ignoreTrigger;
-    private bool firstLanded;
 
     private float speed = 2f;
     private float min_x = -1.45f;
@@ -31,7 +30,6 @@ public class BlockController : MonoBehaviour
     {
         GameController.instance.currentBlock = this;
         moving = true;
-        firstLanded = true;
 
         if (Random.Range(0, 2) > 0)
         {
@@ -74,9 +72,9 @@ public class BlockController : MonoBehaviour
 
     private void TouchGround()
     {
-        if (firstLanded)
+        if (GameController.instance.firstLanded)
         {
-            firstLanded = false;
+            GameController.instance.firstLanded = false;
         }
 
         if (gameover == true)
@@ -88,7 +86,7 @@ public class BlockController : MonoBehaviour
             ignoreCollision = true;
             ignoreTrigger = true;
             GameController.instance.CloneNewBlock();
-            GameController.instance.MoveCamera();
+            //GameController.instance.MoveCamera();
         }
     }
     private void RestartGame()
@@ -100,53 +98,54 @@ public class BlockController : MonoBehaviour
     {
         if (ignoreCollision)
         {
-            Debug.Log("colission");
             return;
         }
 
         if (collision.gameObject.tag == "Ground")
         {
-            ignoreCollision = true;
-            Invoke("TouchGround", 1f);
-            //if (firstLanded)
-            //{
-            //    TouchGround();
-            //}
-            //else
-            //{
-            //    CancelInvoke("TouchGround");
-            //    gameover = true;
-            //    ignoreTrigger = true;
-            //    Invoke("RestartGame", 2f);
-            //}
+            //ignoreCollision = true;
+            //Invoke("TouchGround", 1f);
 
+            if (GameController.instance.firstLanded)
+            {
+                //GameController.instance.firstLanded = false;
+                ignoreCollision = true;
+                TouchGround();
+            }
+            else
+            {
+                CancelInvoke("TouchGround");
+                gameover = true;
+                ignoreTrigger = true;
+                RestartGame();
+            }
         }
 
         if (collision.gameObject.tag == "Block")
         {
             ignoreCollision = true;
-            //Invoke("TouchGround", 1f);
             TouchGround();
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (ignoreTrigger)
-        {
-            return;
-        }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (ignoreTrigger)
+    //    {
+    //        Debug.Log("ignoreTrigger");
+    //        return;
+    //    }
 
-        if (collision.tag == "Ground")
-        {
-            if (!firstLanded)
-            {
-                CancelInvoke("TouchGround");
-                gameover = true;
-                ignoreTrigger = true;
-                Invoke("RestartGame", 2f);
-            }
-            
-        }
-    }
+    //    if (collision.tag == "Ground")
+    //    {
+    //        if (!GameController.instance.firstLanded)
+    //        {
+    //            Debug.Log("Trigger");
+    //            CancelInvoke("TouchGround");
+    //            gameover = true;
+    //            ignoreTrigger = true;
+    //            //Invoke("RestartGame", 2f);
+    //        }
+    //    }
+    //}
 }

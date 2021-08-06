@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -12,12 +13,17 @@ public class GameController : MonoBehaviour
 
     public BlockCloner blockCloner;
     public CameraController camera;
+    public GameObject GameOver;
+    public Text txtScore;
 
     private int count;
-    private int score; 
+    private int score;
+    public bool firstLanded = true;
 
     private void Awake()
     {
+        txtScore.text = "0";
+
         if (instance == null)
         {
             instance = this;
@@ -58,16 +64,16 @@ public class GameController : MonoBehaviour
     public void CloneNewBlock()
     {
         score++;
-        Debug.Log(score.ToString());
-
-        //Invoke("NewBlock", 2f);
+        txtScore.text = score.ToString();
+        //Debug.Log(score.ToString());
         NewBlock();
     }
 
     public void RestartGame()
     {
-        Debug.Log("Restart");
+        Debug.Log("GameOver");
+        GameOver.gameObject.SetActive(true);
+        Time.timeScale = 0;
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
     }
 }

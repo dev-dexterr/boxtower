@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//Still nedd to fix
+
 public class CameraController : MonoBehaviour
 {
     private float move = 1f;
