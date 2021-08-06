@@ -53,7 +53,7 @@ public class GameController : MonoBehaviour
         if (count == 3)
         {
             count = 0;
-            camera.targetPos.y += 2f;
+            camera.targetPos.y += 3f;
         }
     }
     private void NewBlock()
@@ -66,7 +66,8 @@ public class GameController : MonoBehaviour
         score++;
         txtScore.text = score.ToString();
         //Debug.Log(score.ToString());
-        NewBlock();
+        Invoke("NewBlock", 2f);
+        //NewBlock();
     }
 
     public void RestartGame()

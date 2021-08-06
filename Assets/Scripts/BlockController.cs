@@ -84,9 +84,9 @@ public class BlockController : MonoBehaviour
         else
         {
             ignoreCollision = true;
-            ignoreTrigger = true;
-            GameController.instance.CloneNewBlock();
+            //ignoreTrigger = true;
             GameController.instance.MoveCamera();
+            GameController.instance.CloneNewBlock();
         }
     }
     private void RestartGame()
@@ -98,6 +98,7 @@ public class BlockController : MonoBehaviour
     {
         if (ignoreCollision)
         {
+            Debug.Log("ignorecollision");
             return;
         }
 
@@ -108,7 +109,6 @@ public class BlockController : MonoBehaviour
 
             if (GameController.instance.firstLanded)
             {
-                //GameController.instance.firstLanded = false;
                 ignoreCollision = true;
                 TouchGround();
             }
