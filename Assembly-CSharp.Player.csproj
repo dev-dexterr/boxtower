@@ -60,11 +60,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BlockCloner.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Restart.cs" />
     <Compile Include="Assets\Scripts\GroundController.cs" />
     <Compile Include="Assets\Scripts\BlockController.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\Sound.cs" />
+    <Compile Include="Assets\Scripts\AudioManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -96,6 +96,9 @@ public class BlockController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        AudioManager audioManager = FindObjectOfType<AudioManager>();
+        audioManager.Play("star3");
+
         if (ignoreCollision)
         {
             //Debug.Log("ignorecollision");
@@ -140,7 +143,9 @@ public class BlockController : MonoBehaviour
         {
             if (!GameController.instance.firstLanded)
             {
-                Debug.Log("Trigger");
+                AudioManager audioManager = FindObjectOfType<AudioManager>();
+                audioManager.Play("button");
+
                 CancelInvoke("TouchGround");
                 gameover = true;
                 ignoreTrigger = true;

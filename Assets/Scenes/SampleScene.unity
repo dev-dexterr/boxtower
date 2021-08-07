@@ -1271,6 +1271,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724661933}
   m_CullTransparentMesh: 1
+--- !u!1 &1804799931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1804799933}
+  - component: {fileID: 1804799932}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1804799932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804799931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0956e3218eb076e498325d3f662f4e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - source: {fileID: 0}
+    sound: {fileID: 8300000, guid: ec28267417c965d459c6f64105d66bdb, type: 3}
+    name: background
+    volume: 1
+    isLoop: 1
+  - source: {fileID: 0}
+    sound: {fileID: 8300000, guid: b69ea201de15f104d85baf18a127ed2e, type: 3}
+    name: button
+    volume: 1
+    isLoop: 0
+  - source: {fileID: 0}
+    sound: {fileID: 8300000, guid: 6e52218b5375a1c4e884d2b606c25ab8, type: 3}
+    name: star3
+    volume: 1
+    isLoop: 0
+--- !u!4 &1804799933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804799931}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3615612, y: 3.691857, z: 132.08055}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2027367026
 GameObject:
   m_ObjectHideFlags: 0
